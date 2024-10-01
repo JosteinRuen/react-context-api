@@ -1,4 +1,9 @@
-export default function Header({ user, theme, setTheme }) {
+import { useContext } from "react";
+import { AppContext } from "../App";
+
+export default function Header() {
+    const{user,theme,setTheme}=useContext(AppContext)
+
     const handleCheckChange = () => {
       if(theme === 'dark') {
         setTheme('light');
@@ -15,7 +20,10 @@ export default function Header({ user, theme, setTheme }) {
         <header className={theme}>
             <div>
                 <div className="dark-mode-container">
-                    <input id="darkMode" type="checkbox" checked={theme === 'dark'} onChange={handleCheckChange}></input>
+                    <input id="darkMode"
+                     type="checkbox"
+                      checked={theme === 'dark'}
+                       onChange={handleCheckChange}></input>
                     <label htmlFor="darkMode">Enable Dark Mode</label>
                 </div>
                 <div>
